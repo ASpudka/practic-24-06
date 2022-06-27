@@ -10,4 +10,14 @@ const img = document.querySelector(".slider-container .slide img");
 
 const slider = new Slider(imagesBD);
 
+const createSliderBtnHandler = (direction = 'next')=>()=>{
+  const method = direction === 'next'? 'next': 'prev';
+  slider.currentIndex = slider[method];
+}
+nextBtn.addEventListener('click',createSliderBtnHandler('next'));
+prevBtn.addEventListener('click',createSliderBtnHandler('prev'))
+
+function updateView(){
 img.setAttribute("src", slider.currentSlide);
+}
+updateView();
